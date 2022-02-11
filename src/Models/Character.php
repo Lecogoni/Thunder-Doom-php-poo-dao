@@ -13,7 +13,7 @@ use Locale;
 class Character implements Fighter, JsonSerializable
 {
 
-  private string $name;
+  public string $name;
   public int $id;
   private Race $race;
   private Job $job;
@@ -83,5 +83,4 @@ class Character implements Fighter, JsonSerializable
       ]
     );
   }
-  
 }

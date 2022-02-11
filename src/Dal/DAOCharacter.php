@@ -22,7 +22,11 @@ class DAOCharacter extends Dao
     $DAOJob = new DAOJob;
     $DAORace = new DAORace;
 
-    $character = new Character($DAORace->find_by_name($race), $DAOJob->find_by_name($job));
+    $raceObj = $DAORace->find_by_name($race);
+    $jobeObj = $DAOJob->find_by_name($job);
+    
+    $character = new Character($raceObj, $jobeObj);
+    $character->name = $raceObj->name . "-" . $jobeObj->name;
 
     return $character;
   }

@@ -69,5 +69,6 @@ file_put_contents("./db/data.json", $toFile);
 
 // $test = new DAOCharacter;
 // $char1 = $test->new_character("Human", "Druid");
+// var_dump($char1);
 // var_dump($test->load());
 // $test->persist($char1);

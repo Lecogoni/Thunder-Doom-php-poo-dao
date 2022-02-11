@@ -75,7 +75,7 @@ class Game
       // set a new Character
 
       $character = $DAOCharacter->new_character(getARace(), getAJob());
-
+      $character->name = "fighter-" . $qty;
       /* OLD METHOD SANS DAO
 
       $character = new Character(getARace(), getAJob());
@@ -106,7 +106,7 @@ class Game
 
       if (count($arena) <= 1) {
         $this->gameOver = true;
-        echo "\n" . 'we got a winner' . "\n";
+        echo "\n" . 'we got a winner --> ' . $arena[0]->name . " !! \n";
         // affiche les infos du winner et fin de jeu
       }
 

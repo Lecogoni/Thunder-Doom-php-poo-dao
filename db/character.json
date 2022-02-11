@@ -1,1 +1,72 @@
-[{"id":1,"race":1,"job":1,"stats":{"attack":120,"defense":60,"hp":100}},{"id":2,"race":2,"job":2,"stats":{"attack":180,"defense":90,"hp":150}},{"id":3,"race":3,"job":3,"stats":{"attack":180,"defense":90,"hp":150}},{"id":4,"race":2,"job":3,"stats":{"attack":180,"defense":90,"hp":150}},{"id":5,"race":2,"job":3,"stats":{"attack":180,"defense":90,"hp":150}},{"id":6,"race":2,"job":3,"stats":{"attack":180,"defense":90,"hp":150}},{"id":7,"race":2,"job":3,"stats":{"attack":180,"defense":90,"hp":150}}]
+[
+  {
+    "id": 1,
+    "race": 1,
+    "job": 1,
+    "stats": {
+      "attack": 120,
+      "defense": 60,
+      "hp": 100
+    }
+  },
+  {
+    "id": 2,
+    "race": 2,
+    "job": 2,
+    "stats": {
+      "attack": 180,
+      "defense": 90,
+      "hp": 150
+    }
+  },
+  {
+    "id": 3,
+    "race": 3,
+    "job": 3,
+    "stats": {
+      "attack": 180,
+      "defense": 90,
+      "hp": 150
+    }
+  },
+  {
+    "id": 4,
+    "race": 2,
+    "job": 3,
+    "stats": {
+      "attack": 180,
+      "defense": 90,
+      "hp": 150
+    }
+  },
+  {
+    "id": 5,
+    "race": 2,
+    "job": 3,
+    "stats": {
+      "attack": 180,
+      "defense": 90,
+      "hp": 150
+    }
+  },
+  {
+    "id": 6,
+    "race": 2,
+    "job": 3,
+    "stats": {
+      "attack": 180,
+      "defense": 90,
+      "hp": 150
+    }
+  },
+  {
+    "id": 7,
+    "race": 2,
+    "job": 3,
+    "stats": {
+      "attack": 180,
+      "defense": 90,
+      "hp": 150
+    }
+  }
+]

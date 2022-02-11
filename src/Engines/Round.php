@@ -19,7 +19,8 @@ class Round
     $attacker = $this->getFighter();
     $defender = $this->getFighter();
 
-    $this->result .= "\n" . "- Round : " . self::$number_of_round . ", On a l'attaquant et le défenseur";
+    echo "\n". "Nous avons ". count($this->round_arena) . " joueurs dans l'arène !!";
+    $this->result .= "\n" . "- Round : " . self::$number_of_round . " FIGHT !";
     $this->fight($attacker, $defender);
 
     echo $this->result;
@@ -33,15 +34,26 @@ class Round
 
   private function fight($attacker, $defender)
   {
-    $defender->getStats()->hp -= $attacker->getStats()->attack;
-    $this->result .= "\n" . "Attaquant truc attaque defenseur machin résumé point fe vie ././.. ";
-    $this->isDefenderDead($defender);
+    if ($attacker->name === $defender->name) {
+      $defender->hp -= $attacker->att;
+      $this->result .= "\n" . "$attacker->name se frappe lui même !?!".
+      "\n"."résumé point de vie du $attacker->name :  $attacker->hp,  ";
+      $this->isDefenderDead($defender);
+
+    } elseif ($attacker->name != $defender->name) {
+
+      $defender->hp -= $attacker->att;
+      $this->result .= "\n" . "$attacker->name attaque le $defender->name".
+      "\n"."résumé point de vie du $attacker->name :  $attacker->hp,  ".
+      "\n"."résumé point de vie du $defender->name :  $defender->hp,  ";
+      $this->isDefenderDead($defender);
+    }
   }
 
   private function isDefenderDead($defender)
   {
-    if ($defender->getStats()->hp <= 0) {
-      $this->result .= "\n" . "le défenseur machin a passer l'arme a gauche, il reste x joueur dans l'arene " . "\n" . "\n";
+    if ($defender->hp <= 0) {
+      $this->result .= "\n" . "le $defender->name a passé l'arme a gauche, il reste " .count($this->round_arena)-1 . "joueur/s dans l'arene " . "\n" . "\n";
       $key = array_search($defender, $this->round_arena);
       array_splice($this->round_arena, $key, 1);
     }
