@@ -2,6 +2,7 @@
 
 namespace Beweb\Td\Engines;
 
+use Beweb\Td\DAL\DAOCharacter;
 use Beweb\Td\Engines;
 use Beweb\Td\Engines\Arena;
 use Beweb\Td\Models\Character;
@@ -31,15 +32,25 @@ class Game
     // get random race from array
     function getARace()
     {
-      $array = [new Elf, new Human, new Orc];
-      return $array[rand(0, (count($array) - 1))];
+      $races = [];
+      $datas = json_decode(file_get_contents("./db/race.json"), true);
+      foreach ($datas as $data) {
+        array_push($races, $data["name"]);
+      }
+      return $races[rand(0, (count($races) - 1))];
     }
+
     // get random job from  array
     function getAJob()
     {
-      $array = [new Warlock, new Warrior, new Druid];
-      return $array[rand(0, (count($array) - 1))];
+      $jobs = [];
+      $datas = json_decode(file_get_contents("./db/job.json"), true);
+      foreach ($datas as $data) {
+        array_push($jobs, $data["name"]);
+      }
+      return $jobs[rand(0, (count($jobs) - 1))];
     }
+
 
     /**
      * Use to catch the name of the character Race name
@@ -54,22 +65,33 @@ class Game
       return $race_name;
     }
 
+    $DAOCharacter = new DAOCharacter;
+
     /**
      * Loop on the number of Characters we want to create
      * number decided in index.php ($qty)
      */
     while ($qty > 0) {
       // set a new Character
+
+      $character = $DAOCharacter->new_character(getARace(), getAJob());
+
+      /* OLD METHOD SANS DAO
+
       $character = new Character(getARace(), getAJob());
       // Set the name of the new caracter 
       $character->setName(getCharacterRaceName($character) . "_" . $qty);
 
       //$character->showCharacterstats();
 
+      */
+
       // add the new character to the Arena->pit
       array_push($this->arena->pit, $character);
       $qty--;
     }
+
+    //var_dump($this->arena->pit);
   }
 
   public function start()

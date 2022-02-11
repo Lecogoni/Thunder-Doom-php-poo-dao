@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Warrior",
+    "att_multi": 2,
+    "def_multi": 2,
+    "hp_multi": 2
+  },
+  {
+    "id": 2,
+    "name": "Warlock",
+    "att_multi": 3,
+    "def_multi": 3,
+    "hp_multi": 3
+  },
+  {
+    "id": 3,
+    "name": "Druid",
+    "att_multi": 3,
+    "def_multi": 3,
+    "hp_multi": 3
+  }
+]

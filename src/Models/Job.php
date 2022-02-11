@@ -1,14 +1,37 @@
 <?php
+
 namespace Beweb\Td\Models;
 
-abstract class Job  {
+class Job
+{
 
-    protected int $hpmultiplicator;
-    protected int $attackmultiplicator;
-    protected int $defensemultiplicator;
+  public string $name;
+  public int $id;
+  public int $hpmultiplicator;
+  public int $attackmultiplicator;
+  public int $defensemultiplicator;
 
-    abstract function getMultiplicatorHp();
-    abstract function getMultiplicatorAttack();
-    abstract function getMultiplicatorDefense();
+  public function __construct($id, $name, $att_multi, $def_multi, $hp_multi)
+  {
+    $this->id = $id;
+    $this->name = $name;
+    $this->hpmultiplicator = $hp_multi;
+    $this->attackmultiplicator = $att_multi;
+    $this->defensemultiplicator = $def_multi;
+  }
 
+  function getMultiplicatorHp()
+  {
+    return $this->hpmultiplicator;
+  }
+
+  function getMultiplicatorAttack()
+  {
+    return $this->attackmultiplicator;
+  }
+
+  function getMultiplicatorDefense()
+  {
+    return $this->defensemultiplicator;
+  }
 }

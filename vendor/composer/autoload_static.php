@@ -9,16 +9,22 @@ class ComposerStaticInitc6ef927b4beffbabc70c37c4a3202e95
     public static $prefixLengthsPsr4 = array (
         'B' => 
         array (
+            'Beweb\\Td\\Models\\Job\\' => 20,
             'Beweb\\Td\\Models\\Interfaces\\' => 27,
             'Beweb\\Td\\Models\\Impl\\Race\\' => 26,
             'Beweb\\Td\\Models\\Impl\\Job\\' => 25,
             'Beweb\\Td\\Models\\' => 16,
             'Beweb\\Td\\Engines\\' => 17,
+            'Beweb\\Td\\DAL\\' => 13,
             'Beweb\\Td\\' => 9,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Beweb\\Td\\Models\\Job\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Models',
+        ),
         'Beweb\\Td\\Models\\Interfaces\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Models/Interfaces',
@@ -38,6 +44,10 @@ class ComposerStaticInitc6ef927b4beffbabc70c37c4a3202e95
         'Beweb\\Td\\Engines\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Engines',
+        ),
+        'Beweb\\Td\\DAL\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Dal',
         ),
         'Beweb\\Td\\' => 
         array (

@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "name": "Elf",
+    "hp" : 50,
+    "attack" : 60,
+    "defense" : 30
+  },
+  {
+    "id": 2,
+    "name": "Human",
+    "hp" : 50,
+    "attack" : 60,
+    "defense" : 30
+  },
+  {
+    "id": 3,
+    "name": "Orc",
+    "hp" : 50,
+    "attack" : 60,
+    "defense" : 30
+  }
+]
+
+

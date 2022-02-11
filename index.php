@@ -1,6 +1,8 @@
 <?php
-require("./vendor/autoload.php");
 
+use Beweb\Td\DAL\DAOCharacter;
+use Beweb\Td\DAL\DAOJob;
+use Beweb\Td\DAL\DAORace;
 use Beweb\Td\Engines\Game;
 use Beweb\Td\Models\Character;
 use Beweb\Td\Models\Impl\Job\Druid;
@@ -10,23 +12,22 @@ use Beweb\Td\Models\Impl\Race\Elf;
 use Beweb\Td\Models\Impl\Race\Human;
 use Beweb\Td\Models\Impl\Race\Orc;
 
-
-$qty = 3;
-$character = new Character(new Human, new Warrior);
-
+require("./vendor/autoload.php");
 
 /**
  * ICI LA CREATION ET LANCEMENT DE MON JEU
  */
 
-// $my_game = new Game;
-// $my_game->add_character($qty);
-// $my_game->start();
+
+$qty = 3;
+//$character = new Character(new Human, new Warrior);
+$my_game = new Game;
+$my_game->add_character($qty);
+$my_game->start();
 
 
-
-
-// ACCESSING DATA
+/* ACCESSING DATA - Apprentissage
+-------------------------------------------------------------------*/
 
 // file_get_contents() ; lit le contenu d'un fichier
 // file_put_contents() ; écrit d'un fichier
@@ -39,9 +40,7 @@ $values_as_Array = json_decode($values, true);
 
 //var_dump($values_as_Array);
 
-
 foreach ($values_as_Array as $key => $value) {
-  echo  $key;
   if ($value["id"] = 2) {
     //$values_as_Array[$key]["firstname"] = "toto";
   }
@@ -62,3 +61,13 @@ file_put_contents("./db/data.json", $toFile);
 // le stoker en local
 // modifier .... 
 // remplacer tout le fichiers
+
+
+/* USE OF DAO
+-------------------------------------------------------------------*/
+
+
+// $test = new DAOCharacter;
+// $char1 = $test->new_character("Human", "Druid");
+// var_dump($test->load());
+// $test->persist($char1);

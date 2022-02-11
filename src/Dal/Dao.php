@@ -1,12 +1,14 @@
 <?php
 
-class Dao
+namespace Beweb\Td\DAL;
+
+class DAO
 {
 
   private static $instance = null;
-  static string $datasource;
+  public string $datasource;
 
-  private function __construct()
+  public function __construct()
   {
   }
 
@@ -20,7 +22,7 @@ class Dao
   }
 
   /**
-   * return an an array conrtaining the data store in ./db/data.json
+   * return an an array containing the data store in ./db/data.json
    */
   public function get_data()
   {
@@ -30,32 +32,12 @@ class Dao
   }
 
   /**
-   * Store as sa string the params in the ./db/data.json
+   * Store as a string the params in the ./db/data.json
    */
   public function save_data(mixed $data)
   {
-  
+
     $toFile = json_encode($data);
     file_put_contents("./db/data.json", $toFile);
   }
-
-
-  /**
-   * 
-   */
-  public function load_job($hp, $attack, $defense){
-
-    $this->hpmultiplicator = 2;
-    $this->attackmultiplicator = 2;
-    $this->defensemultiplicator = 2;
-
-    $job = new Job;
-
-
-  }
-
-
-
-
 }
-
