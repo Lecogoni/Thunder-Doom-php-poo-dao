@@ -14,6 +14,53 @@ use Beweb\Td\Models\Impl\Race\Orc;
 
 require("./vendor/autoload.php");
 
+
+/**
+ * IMPLEMENTING MVC MODEL
+ */
+var_dump($_GET);
+echo "<br>";
+
+define('WEBROOT', str_replace('index.php', '', $_SERVER['SCRIPT_NAME']));
+define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+
+echo "SCRIPT NAME : " . $_SERVER['SCRIPT_NAME'] . "\n";
+echo "<br>";
+echo "SCRIPT FILENAME : " . $_SERVER['SCRIPT_FILENAME'] . "\n";
+echo "<br>";
+echo "ROOT CONST : " . ROOT  . "\n";
+echo "<br>";
+echo "WEB-ROOT CONST : " . WEBROOT  . "\n";
+echo "<br>";
+
+//require_once(ROOT . 'app/Model.php');
+// require_once(ROOT . 'app/Controller.php');
+
+echo "FINAL PATH : " . $mypath = ROOT . 'Core/Controller.php';
+require(ROOT . 'Core/Controller.php');
+echo "<br>";
+echo "<br>";
+var_dump($_GET['p']);
+
+// On sépare les paramètres et on les met dans le tableau $params
+$params = explode('/', $_GET['p']);
+
+// Si au moins 1 paramètre existe
+if ($params[0] != "") {
+  // On sauvegarde le 1er paramètre dans $controller en mettant sa 1ère lettre en majuscule
+  $controller = ucfirst($params[0]);
+  echo $controller;
+
+  // On sauvegarde le 2ème paramètre dans $action si il existe, sinon index
+  $action = isset($params[1]) ? $params[1] : 'index';
+  echo $action;
+} else {
+  // Ici aucun paramètre n'est défini
+}
+
+
+
+
 /**
  * ICI LA CREATION ET LANCEMENT DE MON JEU
  */
@@ -21,9 +68,21 @@ require("./vendor/autoload.php");
 
 $qty = 3;
 //$character = new Character(new Human, new Warrior);
-$my_game = new Game;
-$my_game->add_character($qty);
-$my_game->start();
+
+// $my_game = new Game;
+// $my_game->add_character($qty);
+// $my_game->start();
+
+
+/* USE OF DAO
+-------------------------------------------------------------------*/
+
+// $test = new DAOCharacter;
+// $char1 = $test->new_character("Human", "Druid");
+// var_dump($char1);
+// var_dump($test->load());
+// $test->persist($char1);
+
 
 
 /* ACCESSING DATA - Apprentissage
@@ -61,14 +120,3 @@ file_put_contents("./db/data.json", $toFile);
 // le stoker en local
 // modifier .... 
 // remplacer tout le fichiers
-
-
-/* USE OF DAO
--------------------------------------------------------------------*/
-
-
-// $test = new DAOCharacter;
-// $char1 = $test->new_character("Human", "Druid");
-// var_dump($char1);
-// var_dump($test->load());
-// $test->persist($char1);
